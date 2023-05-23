@@ -11,11 +11,11 @@ const RootLayout = ({ children }) => {
       <body>
         <div className="main">
           <div className="gradient" />
-
-          <main className="app">
-            {children}
-          </main>
         </div>
+
+        <main className="app">
+          { children }
+        </main>
       </body>
     </html>
   );
