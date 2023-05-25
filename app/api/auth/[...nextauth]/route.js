@@ -4,7 +4,8 @@ import GoogleProvider from "next-auth/providers/google";
 const handler = NextAuth({
   providers: [
     GoogleProvider({
-
-    })
-  ]
-}) 
+      clientId: "",
+      clientSecret: "",
+    }),
+  ],
+});
