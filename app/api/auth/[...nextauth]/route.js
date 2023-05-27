@@ -7,7 +7,9 @@ import { connectToDB } from "@utils/database";
 
 const handler = NextAuth({
   providers: [
-    
+    GoogleProvider({
+      
+    }),
   ],
   async session({ session }) {
 
