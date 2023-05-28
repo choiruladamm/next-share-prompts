@@ -15,11 +15,11 @@ const handler = NextAuth({
   async session({ session }) {
     // store the user id from MongoDB to session
     const sessionUser = await User.findOne({
-      email: session.user.email
-    })
+      email: session.user.email,
+    });
+    session.user.id = sessionUser._id.toString();
 
-    session.user.id = sessionUser._id.toString()
-    return session
+    return session;
   },
   async signIn({ profile }) {
     try {
