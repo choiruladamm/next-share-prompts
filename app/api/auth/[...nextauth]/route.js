@@ -2,7 +2,7 @@ import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import { signIn } from "next-auth/react";
 
-import User from '@models/user'
+import User from "@models/user";
 import { connectToDB } from "@utils/database";
 
 const handler = NextAuth({
@@ -13,32 +13,32 @@ const handler = NextAuth({
     }),
   ],
   async session({ session }) {
-
+    
   },
   async signIn({ profile }) {
     try {
-      await connectToDB()
+      await connectToDB();
 
       // check if users is already exist
       const userExist = await User.findOne({
-        email: profile.email
-      })
+        email: profile.email,
+      });
 
       // if not, create a new user
-      if(!userExist) {
+      if (!userExist) {
         await User.create({
           email: profile.email,
           username: profile.name.replace(" ", "").toLowerCase(),
-          image: profile.image
-        })
+          image: profile.picture,
+        });
       }
 
-      return true
-    } catch (error) { 
+      return true;
+    } catch (error) {
       console.log(error);
-      return false
+      return false;
     }
-  }
+  },
 });
 
-export { handler as GET, handler as POST} 
+export { handler as GET, handler as POST };
