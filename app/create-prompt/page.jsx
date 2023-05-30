@@ -1,8 +1,13 @@
-import React from "react";
+'use client'
+
+import Form from "@components/Form";
+import { useState } from "react";
 
 const CreatePrompt = () => {
+  
+
   return (
-    <div className="">CreatePrompt</div>
+    <Form />
   );
 };
 
