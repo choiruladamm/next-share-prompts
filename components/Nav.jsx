@@ -23,7 +23,7 @@ const Nav = () => {
 
   return (
     <nav className="w-full pt-3 mb-16 flex-between">
-      <Link href="/user" className="flex gap-2 flex-center">
+      <Link href="/" className="flex gap-2 flex-center">
         <Image
           src="/images/logo.svg"
           alt="promptopia logo"
@@ -53,7 +53,7 @@ const Nav = () => {
                 height={37}
                 className="rounded-full"
                 alt="profile"
-                onClick={() => alert("Profile")}
+                onClick={()=>{}}
               />
             </Link>
           </div>
